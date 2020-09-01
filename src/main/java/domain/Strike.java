@@ -1,11 +1,11 @@
 package domain;
 
 public class Strike extends Frame {
-    public Strike(Integer roll, Integer total) {
-        super(roll, 0, total);
+    public Strike(Roll roll, Integer total) {
+        super(roll, new Roll(0), total);
     }
 
-    public Strike(Integer firstRoll, Integer secondRoll, Integer thirdRoll, Integer total) {
+    public Strike(Roll firstRoll, Roll secondRoll, Roll thirdRoll, Integer total) {
         super(firstRoll, secondRoll, thirdRoll, total);
     }
 

@@ -1,10 +1,12 @@
 package util.vo;
 
+import domain.Roll;
+
 public class RollVO {
     private String player;
-    private Integer value;
+    private Roll value;
 
-    public RollVO(String player, Integer value) {
+    public RollVO(String player, Roll value) {
         this.player = player;
         this.value = value;
     }
@@ -17,11 +19,11 @@ public class RollVO {
         this.player = player;
     }
 
-    public Integer getValue() {
+    public Roll getValue() {
         return value;
     }
 
-    public void setValue(Integer value) {
+    public void setValue(Roll value) {
         this.value = value;
     }
 }

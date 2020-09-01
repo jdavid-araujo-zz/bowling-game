@@ -4,8 +4,15 @@ public class Roll {
 
     private Integer numberOfPins;
 
+    private boolean foul;
+
     public Roll(Integer numberOfPins) {
         this.numberOfPins = numberOfPins;
+    }
+
+    public Roll(Integer numberOfPins, boolean foul) {
+        this.numberOfPins = numberOfPins;
+        this.foul = foul;
     }
 
     public Integer getNumberOfPins() {
@@ -16,13 +23,15 @@ public class Roll {
         this.numberOfPins = numberOfPins;
     }
 
-    public void setNumberOfPins(String numberOfPins) {
-        this.numberOfPins = Integer.valueOf(numberOfPins);
+    public boolean isFoul() {
+        return foul;
+    }
+
+    public void setFoul(boolean foul) {
+        this.foul = foul;
     }
 
     public static Roll foul() {
-        return new Roll(0);
+        return new Roll(0, true);
     }
-
-
 }

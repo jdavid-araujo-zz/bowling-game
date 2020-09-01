@@ -1,7 +1,5 @@
 package util.reader;
 
-import util.reader.Read;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -18,7 +16,7 @@ public class ReadFile implements Read {
         try {
             reader = new BufferedReader(new FileReader(path));
         } catch (FileNotFoundException e) {
-            throw new RuntimeException("Não foi possível abrir o arquivo");
+            throw new RuntimeException("The file could not be opened");
         }
     }
 
@@ -27,7 +25,7 @@ public class ReadFile implements Read {
         try {
             reader.close();
         } catch (IOException e) {
-            throw new RuntimeException("Não foi possível fechar o arquivo");
+            throw new RuntimeException("Couldn't close file");
         }
     }
 
@@ -43,7 +41,7 @@ public class ReadFile implements Read {
 
             return null;
         } catch (IOException e) {
-            throw new RuntimeException("Não foi possível ler o arquivo");
+            throw new RuntimeException("Couldn't read the file");
         }
     }
 

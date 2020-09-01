@@ -2,54 +2,54 @@ package domain;
 
 public class Frame {
 
-    private Integer firstRoll;
-    private Integer secondRoll;
-    private  Integer thirdRoll;
+    private Roll firstRoll;
+    private Roll secondRoll;
+    private Roll thirdRoll;
     private Integer total;
 
-    protected Frame(Integer roll) {
-        this(roll, 0);
+    protected Frame(Roll roll) {
+        this(roll, new Roll(0));
     }
 
-    public Frame(Integer firstRoll, Integer secondRoll) {
+    public Frame(Roll firstRoll, Roll secondRoll) {
         this.firstRoll = firstRoll;
         this.secondRoll = secondRoll;
     }
 
-    public Frame(Integer firstRoll, Integer secondRoll, Integer total) {
+    public Frame(Roll firstRoll, Roll secondRoll, Integer total) {
         this.firstRoll = firstRoll;
         this.secondRoll = secondRoll;
         this.total = total;
     }
 
-    public Frame(Integer firstRoll, Integer secondRoll, Integer thirdRoll, Integer total) {
+    public Frame(Roll firstRoll, Roll secondRoll, Roll thirdRoll, Integer total) {
         this.firstRoll = firstRoll;
         this.secondRoll = secondRoll;
         this.thirdRoll = thirdRoll;
         this.total = total;
     }
 
-    public Integer getFirstRoll() {
+    public Roll getFirstRoll() {
         return firstRoll;
     }
 
-    public void setFirstRoll(Integer firstRoll) {
+    public void setFirstRoll(Roll firstRoll) {
         this.firstRoll = firstRoll;
     }
 
-    public Integer getSecondRoll() {
+    public Roll getSecondRoll() {
         return secondRoll;
     }
 
-    public void setSecondRoll(Integer secondRoll) {
+    public void setSecondRoll(Roll secondRoll) {
         this.secondRoll = secondRoll;
     }
 
-    public Integer getThirdRoll() {
+    public Roll getThirdRoll() {
         return thirdRoll;
     }
 
-    public void setThirdRoll(Integer thirdRoll) {
+    public void setThirdRoll(Roll thirdRoll) {
         this.thirdRoll = thirdRoll;
     }
 
