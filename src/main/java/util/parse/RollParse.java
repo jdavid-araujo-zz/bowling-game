@@ -13,6 +13,11 @@ public class RollParse {
 
     private RollParse() {}
 
+    /**
+     * Convert the Roll of the input
+     * @param inputRolls The Rolls of the input
+     * @return A map of each roll organized by player
+     */
     static public Map<String, List<Roll>> getRollWithPlayer(List<String> inputRolls) {
         Map<String, List<Roll>> rollMap = new HashMap<>();
 
@@ -28,6 +33,11 @@ public class RollParse {
         return rollMap;
     }
 
+    /**
+     * Convert the input of the roll to a model
+     * @param inputRoll A input of the Roll
+     * @return The model
+     */
     static private Roll convertInputRollToRoll(String inputRoll)  {
         if(NumberUtils.isDigits(inputRoll)) {
             return new Roll(Integer.valueOf(inputRoll));

@@ -16,6 +16,10 @@ public class ConvertGameResultToString {
         return result.toString();
     }
 
+    /**
+     * Create the Header
+     * @return The header of the print
+     */
   String getHeader() {
       StringBuffer result = new StringBuffer();
 
@@ -35,6 +39,12 @@ public class ConvertGameResultToString {
       return result.toString();
   }
 
+    /**
+     * Create the line of the players
+     * @param player The name of the plauer
+     * @param values The list of the Frame
+     * @return The result formatted to the player
+     */
   String getPlayerLines(String player, List<Frame> values) {
       StringBuffer result = new StringBuffer();
       result.append(player);
@@ -49,6 +59,11 @@ public class ConvertGameResultToString {
       return result.toString();
   }
 
+    /**
+     * Create the print to the rolls
+     * @param values A list of Frame
+     * @return The print of the rolls
+     */
   String getRollsLine(List<Frame> values) {
       StringBuffer result = new StringBuffer();
 

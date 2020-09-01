@@ -11,6 +11,10 @@ public class ReadFile implements Read {
 
     BufferedReader reader;
 
+    /**
+     * Open the file
+     * @param path Path to the file
+     */
     @Override
     public void open(String path) {
         try {
@@ -20,6 +24,9 @@ public class ReadFile implements Read {
         }
     }
 
+    /**
+     * Close the file
+     */
     @Override
     public void close() {
         try {
@@ -29,6 +36,10 @@ public class ReadFile implements Read {
         }
     }
 
+    /**
+     * Read a line
+     * @return A line ot the file
+     */
     @Override
     public String readNextLine() {
         try {
@@ -45,6 +56,10 @@ public class ReadFile implements Read {
         }
     }
 
+    /**
+     * Read all line of the file
+     * @return All line of the file
+     */
     @Override
     public List<String> readlAll()  {
         List<String> data = new ArrayList<>();
