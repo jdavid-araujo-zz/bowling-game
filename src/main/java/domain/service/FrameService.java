@@ -73,34 +73,44 @@ public class FrameService {
 
                 if(this.isStrike(values.get(cursor))) {
                     currentResult += getRollValueStrike(cursor, values);
-                    if(frame != FRAMES_NUMBER - 1) {
-                        currentFrameList.add(new Strike(new Roll(SPARE_STRIKE_VALUE), currentResult));
-                    } else {
-                        currentFrameList.add(new Strike(new Roll(SPARE_STRIKE_VALUE), values.get(cursor+1), values.get(cursor+2), currentResult));
-                    }
+                    currentFrameList.add(this.addNewStrike(frame, currentResult, values.get(cursor+1), values.get(cursor+2)));
                     cursor++;
                 } else if(this.isSpare(cursor, values)) {
                     currentResult += getRollValueSpare(cursor, values);
-
-                    if(frame != FRAMES_NUMBER - 1) {
-                        currentFrameList.add(new Spare(values.get(cursor), values.get(cursor + 1), currentResult));
-                    } else {
-                        currentFrameList.add(new Spare(values.get(cursor), values.get(cursor + 1), values.get(cursor + 2), currentResult));
-                    }
+                    currentFrameList.add(this.addNewSpare(frame, cursor, values, currentResult));
                     cursor += 2;
                 } else {
                     currentResult += getRollValue(cursor, values);
-
-                    if(frame != FRAMES_NUMBER - 1) {
-                        currentFrameList.add(new Frame(values.get(cursor), values.get(cursor + 1), currentResult));
-                    } else {
-                        currentFrameList.add(new Frame(values.get(cursor), values.get(cursor + 1), values.get(cursor + 1), currentResult));
-                    }
+                    currentFrameList.add(this.addNewFrame(frame, cursor, values, currentResult));
                     cursor += 2;
                 }
 
                 this.gameData.put(player, currentFrameList);
             }
+    }
+
+    private Strike addNewStrike(int frame, Integer currentResult, Roll nextRoll, Roll nextNextRoll) {
+        if(frame != FRAMES_NUMBER - 1) {
+            return new Strike(new Roll(SPARE_STRIKE_VALUE), currentResult);
+        } else {
+            return new Strike(new Roll(SPARE_STRIKE_VALUE), nextRoll, nextNextRoll, currentResult);
+        }
+    }
+
+    private Spare addNewSpare(int frame, Integer cursor, List<Roll> values, Integer currentResult) {
+        if(frame != FRAMES_NUMBER - 1) {
+            return new Spare(values.get(cursor), values.get(cursor + 1), currentResult);
+        } else {
+            return new Spare(values.get(cursor), values.get(cursor + 1), values.get(cursor + 2), currentResult);
+        }
+    }
+
+    private Frame addNewFrame(int frame, Integer cursor, List<Roll> values, Integer currentResult) {
+        if(frame != FRAMES_NUMBER - 1) {
+            return new Frame(values.get(cursor), values.get(cursor + 1), currentResult);
+        } else {
+            return new Frame(values.get(cursor), values.get(cursor + 1), values.get(cursor + 1), currentResult);
+        }
     }
 
     public boolean isStrike(Roll value) {
